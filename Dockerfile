@@ -10,7 +10,6 @@ RUN  cd /usr/src && wget https://github.com/google/googletest/archive/release-1.
 
 RUN cd /usr/src && tar xf release-1.8.0.tar.gz && cd /usr/src/googletest-release-1.8.0
 RUN cd /usr/src/googletest-release-1.8.0 && cmake -DBUILD_SHARED_LIBS=ON . && make
-
 ENV GTEST_INCLUDE_DIR=/usr/src/googletest-release-1.8.0/googletest/include/
 ENV GTEST_LIBRARY=/usr/src/googletest-release-1.8.0/googlemock/gtest/libgtest_main.so
 ENV GTEST_MAIN_LIBRARY=/usr/src/googletest-release-1.8.0/googlemock/gtest/libgtest.so
