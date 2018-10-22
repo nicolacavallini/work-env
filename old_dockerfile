@@ -1,0 +1,50 @@
+FROM ubuntu:18.04
+#10.10.0.12:5000/henesis/pantobot3d_pcl:1.0.0
+
+RUN apt-get update
+RUN apt-get install -y git cmake g++ wget make libflann-dev libpng-dev libtiff5 libboost-all-dev
+
+
+
+# # OpenCL 4.1 drivers
+# ADD opencl/opencl-intel-4.1/intel-opencl*.xz /
+# # OpenCL test source
+# ADD opencl/device_query.cpp /tmp/
+# RUN \
+#   apt-get update -qq && \
+#   apt-get install -qq -y libnuma1 clinfo g++ && \
+#   ldconfig && \
+#   cd /tmp/ && \
+#   g++ -o /usr/bin/ocl_device_query ./device_query.cpp -I/opt/intel/opencl/include/ -L/opt/intel/opencl/ -lOpenCL
+#
+# # -> INTEL DRIVERS
+# RUN \
+#     sed -i "/geoclue*/d" /var/lib/dpkg/statoverride && \
+#     DEBIAN_FRONTEND=noninteractive apt-get install -qy xserver-xorg-video-intel
+#
+# RUN \
+#     DEBIAN_FRONTEND=noninteractive apt-get install -qy libgl1-mesa-dri
+#
+#
+# ENV BOOST_ROOT=${base_libdir}/boost_${boost_dashed}/
+# ENV OpenCV_DIR=${base_libdir}/opencv-${opencv_version}/share/OpenCV/
+# ENV EIGEN3_INCLUDE_DIR=${base_libdir}/eigen-${eigen_version}
+# ENV Mosquitto_INCLUDE_DIRS=${base_libdir}/mosquitto-${mosquitto_version}/include
+# ENV Mosquittopp_INCLUDE_DIRS=${base_libdir}/mosquitto-${mosquitto_version}/include
+# ENV Mosquittopp_LIBRARIES=${base_libdir}/mosquitto-${mosquitto_version}/lib/libmosquittopp.so
+# ENV Mosquitto_LIBRARIES=${base_libdir}/mosquitto-${mosquitto_version}/lib/libmosquitto.so
+# ENV MongoClient_INCLUDE_DIRS=${base_libdir}/mongo-cxx-driver-legacy-${mongoclient_version}/include
+# ENV MongoClient_LIBRARIES=${base_libdir}/mongo-cxx-driver-legacy-${mongoclient_version}/lib/libmongoclient.so
+# ENV PCL_DIR=${base_libdir}/pcl-${pcl_version}/share/pcl-${pcl_major}.${pcl_minor}/
+# ENV plplot_INCLUDE_DIRS=/usr/include/plplot
+# ENV plplot_LIBRARIES=/usr/lib/x86_64-linux-gnu/libplplotcxxd.so
+# ENV GTEST_INCLUDE_DIR=${base_libdir}/gtest-${gtest_version}/include
+# ENV GTEST_LIBRARY=${base_libdir}/gtest-${gtest_version}/lib/libgtest.a
+# ENV GTEST_MAIN_LIBRARY=${base_libdir}/gtest-${gtest_version}/lib/libgtest_main.a
+#
+#
+# # RUN useradd -ms /bin/bash koyla
+# #
+# # USER koyla
+# WORKDIR /home/koyla
+# RUN mkdir /home/koyla/homework
